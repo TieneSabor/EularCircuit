@@ -1,0 +1,127 @@
+
+-------- Start logging --------
+x1: 2.000000, y1: 6.000000, x2: 2.000000, y2: 4.800000, map: jj_demo
+x1: 2.000000, y1: 4.800000, x2: 2.000000, y2: 6.000000, map: jj_demo
+x1: 2.000000, y1: 4.800000, x2: 2.000000, y2: 3.800000, map: jj_demo
+x1: 6.000000, y1: 3.800000, x2: 4.800000, y2: 3.800000, map: jj_demo
+x1: 6.000000, y1: 3.800000, x2: 7.200000, y2: 3.800000, map: jj_demo
+x1: 6.000000, y1: 3.800000, x2: 6.000000, y2: 2.400000, map: jj_demo
+x1: 6.000000, y1: 3.800000, x2: 6.000000, y2: 4.800000, map: jj_demo
+x1: 7.200000, y1: 3.800000, x2: 6.000000, y2: 3.800000, map: jj_demo
+x1: 7.200000, y1: 3.800000, x2: 7.190200, y2: 5.348700, map: jj_demo
+x1: 7.200000, y1: 3.800000, x2: 7.200000, y2: 2.400000, map: jj_demo
+x1: 7.190200, y1: 5.348700, x2: 7.200000, y2: 3.800000, map: jj_demo
+x1: 4.800000, y1: 4.800000, x2: 4.800000, y2: 3.800000, map: jj_demo
+x1: 3.700000, y1: 4.800000, x2: 3.500000, y2: 3.800000, map: jj_demo
+x1: 3.200000, y1: 1.200000, x2: 3.500000, y2: 2.400000, map: jj_demo
+x1: 4.800000, y1: 1.700000, x2: 4.800000, y2: 2.400000, map: jj_demo
+x1: 6.000000, y1: 1.800000, x2: 6.000000, y2: 2.400000, map: jj_demo
+x1: 7.200000, y1: 2.400000, x2: 7.200000, y2: 2.400000, map: jj_demo
+x1: 2.000000, y1: 3.800000, x2: 2.000000, y2: 4.800000, map: jj_demo
+x1: 2.000000, y1: 3.800000, x2: 2.000000, y2: 2.400000, map: jj_demo
+x1: 2.000000, y1: 3.800000, x2: 3.500000, y2: 3.800000, map: jj_demo
+x1: 6.000000, y1: 4.800000, x2: 6.000000, y2: 3.800000, map: jj_demo
+x1: 7.200000, y1: 1.800000, x2: 7.200000, y2: 2.400000, map: jj_demo
+x1: 2.000000, y1: 2.400000, x2: 2.000000, y2: 3.800000, map: jj_demo
+x1: 2.000000, y1: 2.400000, x2: 3.500000, y2: 2.400000, map: jj_demo
+x1: 3.500000, y1: 2.400000, x2: 2.000000, y2: 2.400000, map: jj_demo
+x1: 3.500000, y1: 2.400000, x2: 4.800000, y2: 2.400000, map: jj_demo
+x1: 3.500000, y1: 2.400000, x2: 3.500000, y2: 3.800000, map: jj_demo
+x1: 3.500000, y1: 2.400000, x2: 3.200000, y2: 1.200000, map: jj_demo
+x1: 4.800000, y1: 2.400000, x2: 3.500000, y2: 2.400000, map: jj_demo
+x1: 4.800000, y1: 2.400000, x2: 6.000000, y2: 2.400000, map: jj_demo
+x1: 4.800000, y1: 2.400000, x2: 4.800000, y2: 3.800000, map: jj_demo
+x1: 4.800000, y1: 2.400000, x2: 4.800000, y2: 1.700000, map: jj_demo
+x1: 6.000000, y1: 2.400000, x2: 4.800000, y2: 2.400000, map: jj_demo
+x1: 6.000000, y1: 2.400000, x2: 7.200000, y2: 2.400000, map: jj_demo
+x1: 6.000000, y1: 2.400000, x2: 6.000000, y2: 3.800000, map: jj_demo
+x1: 6.000000, y1: 2.400000, x2: 6.000000, y2: 1.800000, map: jj_demo
+x1: 7.200000, y1: 2.400000, x2: 6.000000, y2: 2.400000, map: jj_demo
+x1: 7.200000, y1: 2.400000, x2: 7.200000, y2: 3.800000, map: jj_demo
+x1: 7.200000, y1: 2.400000, x2: 7.200000, y2: 2.400000, map: jj_demo
+x1: 7.200000, y1: 2.400000, x2: 7.200000, y2: 1.800000, map: jj_demo
+x1: 3.500000, y1: 3.800000, x2: 2.000000, y2: 3.800000, map: jj_demo
+x1: 3.500000, y1: 3.800000, x2: 4.800000, y2: 3.800000, map: jj_demo
+x1: 3.500000, y1: 3.800000, x2: 3.700000, y2: 4.800000, map: jj_demo
+x1: 3.500000, y1: 3.800000, x2: 3.500000, y2: 2.400000, map: jj_demo
+x1: 4.800000, y1: 3.800000, x2: 3.500000, y2: 3.800000, map: jj_demo
+x1: 4.800000, y1: 3.800000, x2: 6.000000, y2: 3.800000, map: jj_demo
+x1: 4.800000, y1: 3.800000, x2: 4.800000, y2: 4.800000, map: jj_demo
+x1: 4.800000, y1: 3.800000, x2: 4.800000, y2: 2.400000, map: jj_demo
+[RTREE] This is node 12 at depth: 5, the bounding box is (7.1902,3.8), (7.2,5.3487), leaf: 0, edge: 1
+[RTREE] This is node 14 at depth: 5, the bounding box is (7.1902,3.8), (7.2,5.3487), leaf: 0, edge: 1
+[RTREE] This is node 56 at depth: 5, the bounding box is (7.2,2.4), (7.2,3.8), leaf: 0, edge: 1
+[RTREE] This is node 31 at depth: 4, the bounding box is (7.1902,2.4), (7.2,5.3487), leaf: 1, edge: 0
+[RTREE] This is node 57 at depth: 5, the bounding box is (7.2,2.4), (7.2,2.4), leaf: 0, edge: 1
+[RTREE] This is node 18 at depth: 4, the bounding box is (7.2,2.4), (7.2,2.4), leaf: 1, edge: 0
+[RTREE] This is node 7 at depth: 3, the bounding box is (7.1902,2.4), (7.2,5.3487), leaf: 0, edge: 0
+[RTREE] This is node 8 at depth: 5, the bounding box is (6,2.4), (6,3.8), leaf: 0, edge: 1
+[RTREE] This is node 9 at depth: 5, the bounding box is (6,3.8), (6,4.8), leaf: 0, edge: 1
+[RTREE] This is node 23 at depth: 5, the bounding box is (6,1.8), (6,2.4), leaf: 0, edge: 1
+[RTREE] This is node 29 at depth: 5, the bounding box is (6,3.8), (6,4.8), leaf: 0, edge: 1
+[RTREE] This is node 15 at depth: 4, the bounding box is (6,1.8), (6,4.8), leaf: 1, edge: 0
+[RTREE] This is node 30 at depth: 5, the bounding box is (7.2,1.8), (7.2,2.4), leaf: 0, edge: 1
+[RTREE] This is node 13 at depth: 5, the bounding box is (7.2,2.4), (7.2,3.8), leaf: 0, edge: 1
+[RTREE] This is node 24 at depth: 5, the bounding box is (7.2,2.4), (7.2,2.4), leaf: 0, edge: 1
+[RTREE] This is node 11 at depth: 4, the bounding box is (7.2,1.8), (7.2,3.8), leaf: 1, edge: 0
+[RTREE] This is node 54 at depth: 4, the bounding box is (6,1.8), (6,2.4), leaf: 0, edge: 1
+[RTREE] This is node 60 at depth: 4, the bounding box is (7.2,1.8), (7.2,2.4), leaf: 0, edge: 1
+[RTREE] This is node 48 at depth: 3, the bounding box is (6,1.8), (7.2,4.8), leaf: 1, edge: 0
+[RTREE] This is node 67 at depth: 2, the bounding box is (6,1.8), (7.2,5.3487), leaf: 1, edge: 0
+[RTREE] This is node 55 at depth: 5, the bounding box is (6,2.4), (7.2,2.4), leaf: 0, edge: 1
+[RTREE] This is node 51 at depth: 5, the bounding box is (6,2.4), (7.2,2.4), leaf: 0, edge: 1
+[RTREE] This is node 45 at depth: 5, the bounding box is (4.8,2.4), (6,2.4), leaf: 0, edge: 1
+[RTREE] This is node 50 at depth: 5, the bounding box is (4.8,2.4), (6,2.4), leaf: 0, edge: 1
+[RTREE] This is node 58 at depth: 4, the bounding box is (4.8,2.4), (7.2,2.4), leaf: 1, edge: 0
+[RTREE] This is node 10 at depth: 5, the bounding box is (6,3.8), (7.2,3.8), leaf: 0, edge: 1
+[RTREE] This is node 5 at depth: 5, the bounding box is (6,3.8), (7.2,3.8), leaf: 0, edge: 1
+[RTREE] This is node 4 at depth: 5, the bounding box is (4.8,3.8), (6,3.8), leaf: 0, edge: 1
+[RTREE] This is node 47 at depth: 4, the bounding box is (4.8,3.8), (7.2,3.8), leaf: 1, edge: 0
+[RTREE] This is node 75 at depth: 3, the bounding box is (4.8,2.4), (7.2,3.8), leaf: 1, edge: 0
+[RTREE] This is node 44 at depth: 4, the bounding box is (3.5,2.4), (4.8,2.4), leaf: 0, edge: 1
+[RTREE] This is node 66 at depth: 3, the bounding box is (3.5,2.4), (4.8,2.4), leaf: 1, edge: 0
+[RTREE] This is node 74 at depth: 4, the bounding box is (4.8,2.4), (4.8,3.8), leaf: 0, edge: 1
+[RTREE] This is node 46 at depth: 5, the bounding box is (4.8,2.4), (4.8,3.8), leaf: 0, edge: 1
+[RTREE] This is node 52 at depth: 5, the bounding box is (6,2.4), (6,3.8), leaf: 0, edge: 1
+[RTREE] This is node 53 at depth: 4, the bounding box is (4.8,2.4), (6,3.8), leaf: 1, edge: 0
+[RTREE] This is node 72 at depth: 4, the bounding box is (4.8,3.8), (6,3.8), leaf: 0, edge: 1
+[RTREE] This is node 59 at depth: 3, the bounding box is (4.8,2.4), (6,3.8), leaf: 1, edge: 0
+[RTREE] This is node 20 at depth: 2, the bounding box is (3.5,2.4), (7.2,3.8), leaf: 0, edge: 0
+[RTREE] This is node 49 at depth: 3, the bounding box is (4.8,1.7), (4.8,2.4), leaf: 0, edge: 1
+[RTREE] This is node 22 at depth: 4, the bounding box is (4.8,1.7), (4.8,2.4), leaf: 0, edge: 1
+[RTREE] This is node 36 at depth: 4, the bounding box is (3.5,2.4), (4.8,2.4), leaf: 0, edge: 1
+[RTREE] This is node 42 at depth: 3, the bounding box is (3.5,1.7), (4.8,2.4), leaf: 1, edge: 0
+[RTREE] This is node 62 at depth: 2, the bounding box is (3.5,1.7), (4.8,2.4), leaf: 1, edge: 0
+[RTREE] This is node 65 at depth: 4, the bounding box is (3.5,2.4), (3.5,3.8), leaf: 0, edge: 1
+[RTREE] This is node 64 at depth: 4, the bounding box is (3.5,3.8), (3.7,4.8), leaf: 0, edge: 1
+[RTREE] This is node 71 at depth: 3, the bounding box is (3.5,2.4), (3.7,4.8), leaf: 1, edge: 0
+[RTREE] This is node 70 at depth: 4, the bounding box is (3.5,3.8), (4.8,3.8), leaf: 0, edge: 1
+[RTREE] This is node 17 at depth: 5, the bounding box is (3.5,3.8), (3.7,4.8), leaf: 0, edge: 1
+[RTREE] This is node 16 at depth: 5, the bounding box is (4.8,3.8), (4.8,4.8), leaf: 0, edge: 1
+[RTREE] This is node 0 at depth: 4, the bounding box is (3.5,3.8), (4.8,4.8), leaf: 1, edge: 0
+[RTREE] This is node 63 at depth: 4, the bounding box is (3.5,3.8), (4.8,3.8), leaf: 0, edge: 1
+[RTREE] This is node 73 at depth: 4, the bounding box is (4.8,3.8), (4.8,4.8), leaf: 0, edge: 1
+[RTREE] This is node 38 at depth: 3, the bounding box is (3.5,3.8), (4.8,4.8), leaf: 1, edge: 0
+[RTREE] This is node 76 at depth: 2, the bounding box is (3.5,2.4), (4.8,4.8), leaf: 1, edge: 0
+[RTREE] This is node 40 at depth: 1, the bounding box is (3.5,1.7), (7.2,5.3487), leaf: 0, edge: 0
+[RTREE] This is node 2 at depth: 5, the bounding box is (2,4.8), (2,6), leaf: 0, edge: 1
+[RTREE] This is node 1 at depth: 5, the bounding box is (2,4.8), (2,6), leaf: 0, edge: 1
+[RTREE] This is node 3 at depth: 5, the bounding box is (2,3.8), (2,4.8), leaf: 0, edge: 1
+[RTREE] This is node 6 at depth: 4, the bounding box is (2,3.8), (2,6), leaf: 1, edge: 0
+[RTREE] This is node 25 at depth: 4, the bounding box is (2,3.8), (2,4.8), leaf: 0, edge: 1
+[RTREE] This is node 27 at depth: 4, the bounding box is (2,2.4), (2,3.8), leaf: 0, edge: 1
+[RTREE] This is node 26 at depth: 3, the bounding box is (2,2.4), (2,6), leaf: 1, edge: 0
+[RTREE] This is node 39 at depth: 2, the bounding box is (2,2.4), (2,6), leaf: 1, edge: 0
+[RTREE] This is node 61 at depth: 3, the bounding box is (2,3.8), (3.5,3.8), leaf: 0, edge: 1
+[RTREE] This is node 37 at depth: 4, the bounding box is (3.5,2.4), (3.5,3.8), leaf: 0, edge: 1
+[RTREE] This is node 21 at depth: 4, the bounding box is (3.2,1.2), (3.5,2.4), leaf: 0, edge: 1
+[RTREE] This is node 41 at depth: 4, the bounding box is (3.2,1.2), (3.5,2.4), leaf: 0, edge: 1
+[RTREE] This is node 33 at depth: 3, the bounding box is (3.2,1.2), (3.5,3.8), leaf: 1, edge: 0
+[RTREE] This is node 32 at depth: 4, the bounding box is (2,2.4), (2,3.8), leaf: 0, edge: 1
+[RTREE] This is node 28 at depth: 4, the bounding box is (2,3.8), (3.5,3.8), leaf: 0, edge: 1
+[RTREE] This is node 34 at depth: 4, the bounding box is (2,2.4), (3.5,2.4), leaf: 0, edge: 1
+[RTREE] This is node 35 at depth: 4, the bounding box is (2,2.4), (3.5,2.4), leaf: 0, edge: 1
+[RTREE] This is node 19 at depth: 3, the bounding box is (2,2.4), (3.5,3.8), leaf: 1, edge: 0
+[RTREE] This is node 43 at depth: 2, the bounding box is (2,1.2), (3.5,3.8), leaf: 1, edge: 0
+[RTREE] This is node 68 at depth: 1, the bounding box is (2,1.2), (3.5,6), leaf: 1, edge: 0
+[RTREE] This is node 69 at depth: 0, the bounding box is (2,1.2), (7.2,6), leaf: 0, edge: 0
