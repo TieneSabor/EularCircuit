@@ -170,7 +170,7 @@ void EC_graph::add_edge(v2d * a, v2d * b, int bidirect, int no_repeat_adj)
   }
   mat_dist_[a->index][b->index].width += 1;
   mat_dist_[a->index][b->index].weight = dist(a, b);
-  mat_dist_[a->index][b->index].path.push_back(b);
+  // mat_dist_[a->index][b->index].path.push_back(b);
   // maintain the shortest adj.
   if (a->shortest_adj_index == EC_NOT_INDEX_) {
     a->shortest_adj_dist = mat_dist_[a->index][b->index].weight;
@@ -233,38 +233,27 @@ double EC_graph::update_path(
         mat_dist_[pv.second->shortest_adj_index][pv.first].dist = pv.second->shortest_adj_dist;
       }
     }
-    lastest_edge_ = true;
-  }
-  /* If bidirectional, we may check whether
-   * - mat_dist_[v1][v2] does not exist, AND
-   * - mat_dist_[v2][v1] exists. 
-   */
-  if (bidirect == EC_BIDIRECT_) {
-    if (mat_dist_[v1->index][v2->index].dist == EC_MAX_DOUBLE_) {
-      if (mat_dist_[v2->index][v1->index].dist != EC_MAX_DOUBLE_) {
-        // copy the distance
-        mat_dist_[v1->index][v2->index].dist = mat_dist_[v2->index][v1->index].dist;
-        // copy the path in reverse
-        mat_dist_[v1->index][v2->index].path.insert(
-          mat_dist_[v1->index][v2->index].path.end(),
-          mat_dist_[v2->index][v1->index].path.rbegin() + 1,
-          mat_dist_[v2->index][v1->index].path.rend());
-        visited[v1->index][v2->index] == 0;
-        return mat_dist_[v1->index][v2->index].dist;
+    for (int i = 0; i < vertex_num_; i++) {
+      for (int j = 0; j < vertex_num_; j++) {
+        mat_dist_[i][j].path.push_back(map_ver_[j]);
       }
     }
+    lastest_edge_ = true;
   }
   /* Check boundary conditions: 
    * If v1 == v2, then we return 0
    */
+  /*
   if (v1 == v2) {
+    std::cout << "self loop path" << std::endl;
     visited[v1->index][v2->index] == 0;
     return 0;
   }
+  */
   /* We will return it immediately if it is
    * already the shortest path.
    */
-  else if (mat_dist_[v1->index][v2->index].dist != EC_MAX_DOUBLE_) {
+  if (mat_dist_[v1->index][v2->index].dist != EC_MAX_DOUBLE_) {
     visited[v1->index][v2->index] == 0;
     return mat_dist_[v1->index][v2->index].dist;
   }
@@ -272,13 +261,40 @@ double EC_graph::update_path(
    * the shortest pair
    */
   else if (visited[v1->index][v2->index] == 1) {
-    visited[v1->index][v2->index] ==
-      2;  // This means this pair is visited before and currently no any solution
-    return EC_MAX_DOUBLE_;
-  } else if (visited[v1->index][v2->index] == 2) {
     return EC_MAX_DOUBLE_;
   }
-  /* If the B.C. is not met, we will recursively find shortest path.
+  /* If bidirectional, we may check whether
+   * 1. mat_dist_[v2][v1] does exist, and
+   * 2. mat_dist_[v1][v2] does not exist, and
+   */
+  if (bidirect == EC_BIDIRECT_) {
+    if (mat_dist_[v2->index][v1->index].dist != EC_MAX_DOUBLE_) {
+      if (mat_dist_[v1->index][v2->index].dist == EC_MAX_DOUBLE_) {
+        // copy the distance
+        mat_dist_[v1->index][v2->index].dist = mat_dist_[v2->index][v1->index].dist;
+        // copy the path in reverse
+        mat_dist_[v1->index][v2->index].path.insert(
+          mat_dist_[v1->index][v2->index].path.end() - 1,
+          mat_dist_[v2->index][v1->index].path.rbegin() + 1,
+          mat_dist_[v2->index][v1->index].path.rend());
+        /*
+        std::cout << "from " << v1->index << " to " << v2->index << ": " << v1->index;
+        for (int i = 0; i < mat_dist_[v1->index][v2->index].path.size(); i++) {
+          std::cout << " -> " << mat_dist_[v1->index][v2->index].path[i]->index;
+        }
+        std::cout << std::endl;
+        std::cout << "from " << v2->index << " to " << v1->index << ": " << v2->index;
+        for (int i = 0; i < mat_dist_[v2->index][v1->index].path.size(); i++) {
+          std::cout << " -> " << mat_dist_[v2->index][v1->index].path[i]->index << " -> ";
+        }
+        std::cout << std::endl;
+        */
+        visited[v1->index][v2->index] == 0;
+        return mat_dist_[v1->index][v2->index].dist;
+      }
+    }
+  }
+  /* If all the B.C.s are not met, we will recursively find shortest path.
    */
   double shortest = mat_dist_[v1->index][v2->index].weight;
   int mid_pt = -1;
@@ -292,16 +308,43 @@ double EC_graph::update_path(
       }
     }
   }
-  mat_dist_[v1->index][v2->index].dist = shortest;
   if (mid_pt != -1) {
+    // std::cout << "--- MID POINT FOUND ---" << std::endl;
+    // std::cout << "original dist: " << mat_dist_[v1->index][v2->index].dist << std::endl;
+    /*
+    std::cout << "from " << v1->index << " to " << v2->index << ": " << v1->index;
+    for (int i = 0; i < mat_dist_[v1->index][v2->index].path.size(); i++) {
+      std::cout << " -> " << mat_dist_[v1->index][v2->index].path[i]->index;
+    }
+    std::cout << std::endl;
+    */
     mat_dist_[v1->index][v2->index].path.insert(
       mat_dist_[v1->index][v2->index].path.begin(), mat_dist_[mid_pt][v2->index].path.begin(),
-      mat_dist_[mid_pt][v2->index].path.end());
+      mat_dist_[mid_pt][v2->index].path.end() - 1);
     mat_dist_[v1->index][v2->index].path.insert(
       mat_dist_[v1->index][v2->index].path.begin(), mat_dist_[v1->index][mid_pt].path.begin(),
       mat_dist_[v1->index][mid_pt].path.end());
     visited[v1->index][v2->index] == 0;
+    /*
+    std::cout << "from " << v1->index << " to " << mid_pt << ": " << v1->index;
+    for (int i = 0; i < mat_dist_[v1->index][mid_pt].path.size(); i++) {
+      std::cout << " -> " << mat_dist_[v1->index][mid_pt].path[i]->index;
+    }
+    std::cout << std::endl;
+    std::cout << "from " << mid_pt << " to " << v2->index << ": " << mid_pt;
+    for (int i = 0; i < mat_dist_[mid_pt][v2->index].path.size(); i++) {
+      std::cout << " -> " << mat_dist_[mid_pt][v2->index].path[i]->index;
+    }
+    std::cout << std::endl;
+    std::cout << "from " << v1->index << " to " << v2->index << ": " << v1->index;
+    for (int i = 0; i < mat_dist_[v1->index][v2->index].path.size(); i++) {
+      std::cout << " -> " << mat_dist_[v1->index][v2->index].path[i]->index;
+    }
+    std::cout << std::endl;
+    std::cout << std::endl;
+    */
   }
+  mat_dist_[v1->index][v2->index].dist = shortest;
   return shortest;
 }
 
@@ -331,25 +374,42 @@ void EC_graph::connect_odd_vertice()
     std::pair<int, int> op = my_bm.get_pairs(main_key, i);
     v2d * last_pov = odd_vertex_[op.first];
     for (v2d * pov : mat_dist_[odd_vertex_[op.first]->index][odd_vertex_[op.second]->index].path) {
+      // std::cout << "eularize add edge " << last_pov->index << ", " << pov->index << std::endl;
       add_edge(last_pov, pov, EC_BIDIRECT_, !(EC_NOREPEAT_ADJ_));
       last_pov = pov;
     }
   }
 }
 
+void EC_graph::get_path(v2d * v1, v2d * v2, std::vector<v2d *> & res)
+{
+  res = mat_dist_[v1->index][v2->index].path;
+}
+
 void EC_graph::eularize(int bidirect)
 {
-  // A. We first find all vertice with odd edges, this function
-  //    also sorts the odd_vertex_
-  find_odd(bidirect);
-  // B. Then we pair those odd edges so that the total sum of the
-  //    distance of each pair can be the smallest.
-  //    After that, we add pathes of those paired odd_vertices to original graphs.
-  if (bidirect == EC_BIDIRECT_) {
-    connect_odd_vertice();
-  } else {
-    // Not implemented yet
-    return;
+  bool ok = true;
+  while (ok) {
+    // A. We first find all vertice with odd edges, this function
+    //    also sorts the odd_vertex_
+    odd_vertex_.clear();
+    find_odd(bidirect);
+    for (int i = 0; i < odd_vertex_.size(); i++) {
+      // std::cout << "odd_vertex: " << odd_vertex_[i]->index << std::endl;
+    }
+    // A-2. If there's no odd vertex pair remaining, then the eularization stops.
+    if (odd_vertex_.size() == 0) {
+      break;
+    }
+    // B. Then we pair those odd edges so that the total sum of the
+    //    distance of each pair can be the smallest.
+    //    After that, we add pathes of those paired odd_vertices to original graphs.
+    if (bidirect == EC_BIDIRECT_) {
+      connect_odd_vertice();
+    } else {
+      // Not implemented yet
+      return;
+    }
   }
 }
 
@@ -357,7 +417,7 @@ void EC_graph::print_width(std::string & res)
 {
   for (int i = 0; i < vertex_num_; i++) {
     for (int j = 0; j < vertex_num_; j++) {
-      double dis = mat_dist_[i][j].width;
+      int dis = mat_dist_[i][j].width;
       res += std::to_string(dis) + " | ";
     }
     res += "\r\n";
@@ -393,6 +453,8 @@ void EC_graph::find_eular_circuit(int bidirect)
         path_iter_flag += 1;
         // When go to another vertex, delete the edge between this and that.
         // If bidirectional, we will have to delete the edge symmetrically.
+        // std::cout << "at point: " << cv->index << ", iter flag: " << path_iter_flag << " and go to "
+        //          << i << std::endl;
         mat_dist_[cv->index][i].width--;
         if (bidirect == EC_BIDIRECT_) {
           mat_dist_[i][cv->index].width--;
@@ -403,13 +465,20 @@ void EC_graph::find_eular_circuit(int bidirect)
           edge_num += mat_dist_[cv->index][j].width;
         }
         if (edge_num != 0) {
+          // std::cout << "unfinish..." << std::endl;
           unfinished_.push_back(std::pair<int, v2d *>(path_iter_flag - 1, cv));
         }
         // update the iter_flag, current vertex to the next one, and add the next one to the Eular circuit
         cv = map_ver_[i];
+
         eular_path_.insert(eular_path_.begin() + path_iter_flag, cv);
         // std::cout << "path iter flag: " << path_iter_flag << ", path size: " << eular_path_.size()
         //          << std::endl;
+        /*
+        std::string res;
+        print_width(res);
+        std::cout << res << std::endl;
+        */
         break;
       }
     }

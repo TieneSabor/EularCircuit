@@ -182,10 +182,132 @@ int test_EC()
   return 0;
 }
 
+int test_EC_testset2()
+{
+  std::cout << "------- Build Graph -------" << std::endl;
+  // define test set
+  EC_graph eg(-1, -1, 10);
+  // vertex
+  eg.add_vert(0, 36.1792, 76.1738);
+  eg.add_vert(1, 93.8648, 97.2658);
+  eg.add_vert(2, 2.22244, 70.8518);
+  eg.add_vert(3, 58.2067, 26.8291);
+  eg.add_vert(4, 28.8282, 4.09496);
+  eg.add_vert(5, 2.5475, 25.3029);
+  eg.add_vert(6, 22.3328, 94.5873);
+  eg.add_vert(7, 25.2114, 72.4375);
+  eg.add_vert(8, 12.183, 12.6488);
+  eg.add_vert(9, 94.9887, 50.2166);
+  // edge
+  eg.add_edge(0, 3);
+  eg.add_edge(0, 5);
+  eg.add_edge(0, 8);
+  eg.add_edge(1, 2);
+  eg.add_edge(1, 5);
+  eg.add_edge(1, 6);
+  eg.add_edge(1, 7);
+  eg.add_edge(1, 9);
+  eg.add_edge(2, 5);
+  eg.add_edge(2, 6);
+  eg.add_edge(2, 7);
+  eg.add_edge(2, 8);
+  eg.add_edge(3, 4);
+  eg.add_edge(3, 6);
+  eg.add_edge(3, 7);
+  eg.add_edge(3, 9);
+  eg.add_edge(4, 7);
+  eg.add_edge(4, 9);
+  eg.add_edge(5, 9);
+  eg.add_edge(6, 7);
+  // print
+  std::string res;
+  eg.print_width(res);
+  std::cout << res << std::endl;
+  /*
+  // calculate odd vertices
+  std::vector<v2d *> odd;
+  eg.find_odd();
+  eg.get_odd(odd);
+  std::cout << "------- Find Odd -------" << std::endl;
+  for (auto v : odd) {
+    std::cout << v->index << ", ";
+  }
+  std::cout << std::endl;
+  std::cout << "------- Update Path -------" << std::endl;
+  std::vector<std::vector<int>> visited(10, std::vector<int>(10, 0));
+  double dist = eg.update_path(odd[4], odd[5], visited);
+  std::cout << "shortest dist btw " << odd[0]->index << " and " << odd[1]->index << " is " << dist
+            << std::endl;
+  std::vector<v2d *> test;
+  eg.get_path(odd[4], odd[5], test);
+  std::cout << std::to_string(odd[4]->index);
+  for (v2d * iv : test) {
+    std::cout << " -> " << std::to_string(iv->index);
+  }
+  std::cout << std::endl;
+  */
+  /*
+  std::cout << "------- Eularize -------" << std::endl;
+  res.clear();
+  eg.eularize();
+  // std::string res;
+  eg.print_width(res);
+  std::cout << res << std::endl;
+  */
+  /*
+  std::vector<v2d *> ec;
+  eg.find_eular_circuit();
+  eg.get_eular_circuit(ec);
+  std::cout << "------- Eular Circuit -------" << std::endl;
+  for (auto v : ec) {
+    std::cout << v->index << ", ";
+  }
+  std::cout << std::endl;
+  res.clear();
+  eg.print_width(res);
+  std::cout << res << std::endl;
+  */
+
+  // Now test the code
+  std::cout << "------- Test Graph with Eular Circuit -------" << std::endl;
+  std::cout << "------- Print the vertex here -------" << std::endl;
+  int npt = 10;
+  std::vector<v2d *> vv;
+  std::vector<std::pair<int, int>> ve;
+  eg.get_vert(vv);
+  eg.get_edge(ve);
+  for (int i = 0; i < npt; i++) {
+    std::cout << "index: " << i << ", x: " << vv[i]->x << ", y: " << vv[i]->y << std::endl;
+  }
+  std::cout << "------- Print the edge here -------" << std::endl;
+  for (int i = 0; i < ve.size(); i++) {
+    std::cout << "index pair: " << ve[i].first << ", " << ve[i].second << std::endl;
+  }
+
+  // get the route
+
+  std::vector<v2d *> ep;
+  eg.find_eular_circuit();
+  eg.get_eular_circuit(ep);
+  std::cout << "------- Eular Circuit -------" << std::endl;
+  for (auto v : ep) {
+    std::cout << v->index << std::endl;
+  }
+
+  /*
+  std::cout << std::endl;
+  std::string res;
+  res.clear();
+  eg.print_width(res);
+  std::cout << res << std::endl;
+  */
+  return 0;
+}
+
 int test_EC_rand()
 {
   srand(time(NULL));
-  int npt = 20, neg = 40;
+  int npt = 100, neg = 200;
   double rng = 100;
   // create a eular circuit graph
   std::cout << "------- Create Graph with Eular Circuit -------" << std::endl;
@@ -220,44 +342,46 @@ int test_EC_rand()
   gph[sttpt][curpt] = 1;
   // No test the code
   std::cout << "------- Test Graph with Eular Circuit -------" << std::endl;
+  std::cout << "------- Print the vertex here -------" << std::endl;
   EC_graph ec(0, 0, npt);
   for (int i = 0; i < npt; i++) {
     double tx, ty;
     tx = rng * (rand() / (RAND_MAX + 1.0));
     ty = rng * (rand() / (RAND_MAX + 1.0));
     ec.add_vert(i, tx, ty);
+    std::cout << "index: " << i << ", x: " << tx << ", y: " << ty << std::endl;
   }
+  std::cout << "------- Print the edge here -------" << std::endl;
   for (int i = 0; i < npt; i++) {
     for (int j = i + 1; j < npt; j++) {
-      // std::cout << " | " << gph[i][j];
       if (gph[i][j] == 1) {
         ec.add_edge(i, j);
+        std::cout << "index pair: " << i << ", " << j << std::endl;
       }
     }
-    // std::cout << " | " << std::endl;
   }
-  std::string res;
-  ec.print_width(res);
-  std::cout << res << std::endl;
   // get the route
   std::vector<v2d *> ep;
   ec.find_eular_circuit();
   ec.get_eular_circuit(ep);
   std::cout << "------- Eular Circuit -------" << std::endl;
   for (auto v : ep) {
-    std::cout << v->index << " -> ";
+    std::cout << v->index << std::endl;
   }
+  /*
   std::cout << std::endl;
+  std::string res;
   res.clear();
   ec.print_width(res);
   std::cout << res << std::endl;
+  */
   return 0;
 }
 
 int test_EC_rand_eularize()
 {
   srand(time(NULL));
-  int npt = 10, neg = 20;
+  int npt = 10, neg = 21;
   double rng = 100;
   // create a eular circuit graph
   std::cout << "------- Create Graph with Eular Circuit -------" << std::endl;
@@ -269,8 +393,10 @@ int test_EC_rand_eularize()
       bool ok = true;
       while (ok) {
         int j = i + 1 + abs((npt - i - 1.0) * (rand() / (RAND_MAX + 1.0)));
+        std::cout << "j: " << j << std::endl;
         // std::cout << "(" << i << "," << j << ")" << std::endl;
-        if ((j < npt) && (flag[j] == 0)) {
+        // if ((j < npt) && (flag[j] == 0)) {
+        if (j < npt) {
           gph[i][j] = 1;
           gph[j][i] = 1;
           rne--;
@@ -308,36 +434,39 @@ int test_EC_rand_eularize()
   }
   // No test the code
   std::cout << "------- Test Graph with Eular Circuit -------" << std::endl;
+  std::cout << "------- Print the vertex here -------" << std::endl;
   EC_graph ec(0, 0, npt);
   for (int i = 0; i < npt; i++) {
     double tx, ty;
     tx = rng * (rand() / (RAND_MAX + 1.0));
     ty = rng * (rand() / (RAND_MAX + 1.0));
     ec.add_vert(i, tx, ty);
+    std::cout << "index: " << i << ", x: " << tx << ", y: " << ty << std::endl;
   }
+  std::cout << "------- Print the edge here -------" << std::endl;
   for (int i = 0; i < npt; i++) {
     for (int j = i + 1; j < npt; j++) {
       if (gph[i][j] == 1) {
         ec.add_edge(i, j);
+        std::cout << "index pair: " << i << ", " << j << std::endl;
       }
     }
   }
-  // std::string res;
-  // ec.print_width(res);
-  // std::cout << res << std::endl;
   // get the route
   std::vector<v2d *> ep;
   ec.find_eular_circuit();
   ec.get_eular_circuit(ep);
   std::cout << "------- Eular Circuit -------" << std::endl;
   for (auto v : ep) {
-    std::cout << v->index << " -> ";
+    std::cout << v->index << std::endl;
   }
+  /*
   std::cout << std::endl;
   std::string res;
   res.clear();
   ec.print_width(res);
   std::cout << res << std::endl;
+  */
   return 0;
 }
 

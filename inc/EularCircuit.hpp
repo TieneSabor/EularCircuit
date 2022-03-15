@@ -118,6 +118,7 @@ public:
   double dist(v2d * v, double x, double y);
 
   /* distance of 2 vertice v1 and v2
+   */
   double dist(v2d * v1, v2d * v2);
 
   /* Add the vertex v into the graph.
@@ -147,6 +148,29 @@ public:
    */
   void add_edge(int ia, int ib, int bidirect = EC_BIDIRECT_, int no_repeat_adj = EC_NOREPEAT_ADJ_);
 
+  /* 
+   */
+  void get_vert(std::vector<v2d *> & vv)
+  {
+    for (int i = 0; i < vertex_num_; i++) {
+      vv.push_back(map_ver_[i]);
+    }
+  }
+
+  /* 
+   */
+  void get_edge(std::vector<std::pair<int, int>> & ve)
+  {
+    for (int i = 0; i < vertex_num_; i++) {
+      for (int j = 0; j < vertex_num_; j++) {
+        e2d te = mat_dist_[i][j];
+        if (te.weight != EC_MAX_DOUBLE_) {
+          ve.push_back(std::pair<int, int>(i, j));
+        }
+      }
+    }
+  }
+
   /* Get the vertex pointer by its index.
    */
   v2d * get_p_vertex(int index) { return map_ver_[index]; }
@@ -171,6 +195,9 @@ public:
   double update_path(
     v2d * v1, v2d * v2, std::vector<std::vector<int>> & visited, int bidirect = EC_BIDIRECT_);
 
+  /*  */
+  void get_path(v2d * v1, v2d * v2, std::vector<v2d *> & res);
+
   /* After find_odd(), this function can give a serie of odd-vertice pairs with minimal
    * sum of distances.
    * We assume the graph is not directed.
@@ -184,6 +211,10 @@ public:
   /* Stored the Adjacency Map in the string "res".
    */
   void print_width(std::string & res);
+
+  /* 
+   */
+  // void print_path();
 
   /* Calculate the Eular Circuit.
    */

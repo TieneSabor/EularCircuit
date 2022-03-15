@@ -1,0 +1,91 @@
+------- Build Graph -------
+0 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 0 | 
+0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | 1 | 
+0 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 0 | 
+1 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 
+0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 1 | 
+1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 
+0 | 1 | 1 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 
+1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+0 | 1 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 
+
+------- Test Graph with Eular Circuit -------
+------- Print the vertex here -------
+index: 0, x: 36.1792, y: 76.1738
+index: 1, x: 93.8648, y: 97.2658
+index: 2, x: 2.22244, y: 70.8518
+index: 3, x: 58.2067, y: 26.8291
+index: 4, x: 28.8282, y: 4.09496
+index: 5, x: 2.5475, y: 25.3029
+index: 6, x: 22.3328, y: 94.5873
+index: 7, x: 25.2114, y: 72.4375
+index: 8, x: 12.183, y: 12.6488
+index: 9, x: 94.9887, y: 50.2166
+------- Print the edge here -------
+index pair: 0, 3
+index pair: 0, 5
+index pair: 0, 8
+index pair: 1, 2
+index pair: 1, 5
+index pair: 1, 6
+index pair: 1, 7
+index pair: 1, 9
+index pair: 2, 1
+index pair: 2, 5
+index pair: 2, 6
+index pair: 2, 7
+index pair: 2, 8
+index pair: 3, 0
+index pair: 3, 4
+index pair: 3, 6
+index pair: 3, 7
+index pair: 3, 9
+index pair: 4, 3
+index pair: 4, 7
+index pair: 4, 9
+index pair: 5, 0
+index pair: 5, 1
+index pair: 5, 2
+index pair: 5, 9
+index pair: 6, 1
+index pair: 6, 2
+index pair: 6, 3
+index pair: 6, 7
+index pair: 7, 1
+index pair: 7, 2
+index pair: 7, 3
+index pair: 7, 4
+index pair: 7, 6
+index pair: 8, 0
+index pair: 8, 2
+index pair: 9, 1
+index pair: 9, 3
+index pair: 9, 4
+index pair: 9, 5
+------- Eular Circuit -------
+8
+0
+3
+0
+5
+1
+2
+5
+9
+1
+6
+2
+7
+1
+9
+3
+4
+9
+4
+7
+3
+6
+7
+2
+8
