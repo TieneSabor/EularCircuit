@@ -1,5 +1,17 @@
 #include <EularCircuit.hpp>
 
+#define DBG_INFO(x, ...)                                                                         \
+  if (dbg_flag_) {                                                                               \
+    snprintf(                                                                                    \
+      buf_, 1 + snprintf(nullptr, 0, "[%s]" x "\r\n", __func__, ##__VA_ARGS__), "[%s]" x "\r\n", \
+      __func__, ##__VA_ARGS__);                                                                  \
+    err_ += std::string(buf_);                                                                   \
+  }
+
+int dbg_flag_ = 1;
+char buf_[50];
+std::string err_;
+
 double dmax(double a, double b)
 {
   if (a > b) {
@@ -211,6 +223,13 @@ void EC_graph::find_odd(int bidirect)
         i_edge += mat_dist_[i][j].width;
       }
       if ((i_edge % 2) == 1) {
+        /*
+        std::cout << "odd i: " << i << ", edge num: " << i_edge << std::endl;
+        for (int j = 0; j < vertex_num_; j++) {
+          std::cout << mat_dist_[i][j].width << ", ";
+        }
+        */
+        std::cout << std::endl;
         odd_vertex_.push_back(map_ver_[i]);
       }
     }
@@ -360,15 +379,16 @@ void EC_graph::connect_odd_vertice()
   std::string main_key;
   my_bm.key_from_int(main_key, odd_vertex_.size());
   // produce the weight matrix for my_bm
-  std::vector<std::vector<int>> visited(vertex_num_, std::vector<int>(vertex_num_, 0));
   for (int i = 0; i < odd_vertex_.size(); i++) {
     for (int j = i + 1; j < odd_vertex_.size(); j++) {
+      std::vector<std::vector<int>> visited(vertex_num_, std::vector<int>(vertex_num_, 0));
       update_path(odd_vertex_[i], odd_vertex_[j], visited);
       my_bm.insert_weight(i, j, mat_dist_[odd_vertex_[i]->index][odd_vertex_[j]->index].dist);
     }
   }
   // search for best matches
   my_bm.search_pairs(main_key);
+  // my_bm.print_weight();
   // For each match, we add bidirectional shortest path to original graph
   for (int i = 0; i < (odd_vertex_.size() / 2); i++) {
     std::pair<int, int> op = my_bm.get_pairs(main_key, i);
@@ -504,4 +524,76 @@ void EC_graph::find_eular_circuit(int bidirect)
       }
     }
   }
+}
+
+int EC_graph::print_file_no_path(std::string path)
+{
+  std::fstream file;
+  file.open(path, std::ios::out);
+  if (!file) {
+    DBG_INFO("Eular circuit file opening error.")
+    return 1;
+  }
+  file << "------- Test Graph with Eular Circuit -------" << std::endl;
+  file << "------- Current Position -------" << std::endl;
+  file << "x: " << curX_ << ", y: " << curY_ << ", total num: " << vertex_num_ << std::endl;
+  file << "------- Print the vertex here -------" << std::endl;
+  for (int i = 0; i < vertex_num_; i++) {
+    double tx = map_ver_[i]->x;
+    double ty = map_ver_[i]->y;
+    file << "index: " << i << ", x: " << tx << ", y: " << ty << std::endl;
+  }
+  file << "------- Print the edge here -------" << std::endl;
+  for (int i = 0; i < vertex_num_; i++) {
+    for (int j = i + 1; j < vertex_num_; j++) {
+      if (mat_dist_[i][j].weight != EC_MAX_DOUBLE_) {
+        file << "index pair: " << i << ", " << j << std::endl;
+      }
+    }
+  }
+  return 0;
+}
+
+int EC_graph::print_file(std::string path)
+{
+  if (eular_path_.size() > 0) {
+    std::fstream file;
+    file.open(path, std::ios::out);
+    if (!file) {
+      DBG_INFO("Eular circuit file opening error.")
+      return 1;
+    }
+    file << "------- Test Graph with Eular Circuit -------" << std::endl;
+    file << "------- Current Position -------" << std::endl;
+    file << "x: " << curX_ << ", y: " << curY_ << ", total num: " << vertex_num_ << std::endl;
+    file << "------- Print the vertex here -------" << std::endl;
+    for (int i = 0; i < vertex_num_; i++) {
+      double tx = map_ver_[i]->x;
+      double ty = map_ver_[i]->y;
+      file << "index: " << i << ", x: " << tx << ", y: " << ty << std::endl;
+    }
+    file << "------- Print the edge here -------" << std::endl;
+    for (int i = 0; i < vertex_num_; i++) {
+      for (int j = i + 1; j < vertex_num_; j++) {
+        if (mat_dist_[i][j].weight != EC_MAX_DOUBLE_) {
+          file << "index pair: " << i << ", " << j << std::endl;
+        }
+      }
+    }
+    // get the route
+    file << "------- Eular Circuit -------" << std::endl;
+    for (auto v : eular_path_) {
+      file << v->index << std::endl;
+    }
+    return 0;
+  } else {
+    DBG_INFO("Eular circuit print before any Eular Path.")
+    return 2;
+  }
+}
+
+void EC_graph::get_err(std::string _err)
+{
+  _err = err_;
+  err_.clear();
 }

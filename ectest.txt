@@ -1,0 +1,280 @@
+------- Test Graph with Eular Circuit -------
+------- Current Position -------
+x: 16.0053, y: 0.418933, total num: 80
+------- Print the vertex here -------
+index: 0, x: 7.59, y: -12.27
+index: 1, x: 40.71, y: -21
+index: 2, x: 0.12, y: -12.39
+index: 3, x: 12.21, y: -9.78
+index: 4, x: 3.84, y: -14.73
+index: 5, x: 7.56, y: -9.87
+index: 6, x: 0.03, y: -7.44
+index: 7, x: 3.75, y: -9.81
+index: 8, x: 18.45, y: -6.63
+index: 9, x: 3.72, y: -4.95
+index: 10, x: 17.43, y: 19.68
+index: 11, x: 12.21, y: -6.33
+index: 12, x: 25.77, y: -6.6
+index: 13, x: 7.62, y: -14.73
+index: 14, x: 7.59, y: -3.84
+index: 15, x: 24.09, y: -6.66
+index: 16, x: 7.59, y: -5.07
+index: 17, x: 3.78, y: -2.55
+index: 18, x: 12.24, y: -2.7
+index: 19, x: 9.99, y: -14.76
+index: 20, x: 9.87, y: -5.13
+index: 21, x: 3.72, y: -8.73
+index: 22, x: 31.98, y: -12.09
+index: 23, x: -0.09, y: 0.39
+index: 24, x: 7.56, y: -8.7
+index: 25, x: 25.74, y: -2.1
+index: 26, x: 12.21, y: -13.5
+index: 27, x: 31.89, y: -16.68
+index: 28, x: 9.87, y: -8.61
+index: 29, x: 41.25, y: -19.05
+index: 30, x: 9.93, y: -12.27
+index: 31, x: 9.87, y: -2.58
+index: 32, x: 12.24, y: 0.42
+index: 33, x: 9.84, y: -7.38
+index: 34, x: 12.27, y: -1.44
+index: 35, x: 41.25, y: -16.65
+index: 36, x: 12.21, y: -8.67
+index: 37, x: 25.89, y: -12
+index: 38, x: 7.53, y: 0.42
+index: 39, x: 7.56, y: -10.98
+index: 40, x: 0.03, y: -6.27
+index: 41, x: 24.09, y: -3.57
+index: 42, x: 12.24, y: -3.81
+index: 43, x: 16.2, y: -7.23
+index: 44, x: 12.21, y: -12.24
+index: 45, x: 3.81, y: -12.39
+index: 46, x: 9.93, y: -11.1
+index: 47, x: 0.12, y: -14.76
+index: 48, x: 12.24, y: -14.73
+index: 49, x: 16.05, y: 0.42
+index: 50, x: 9.84, y: 0.42
+index: 51, x: 19.83, y: 19.59
+index: 52, x: 41.19, y: -11.49
+index: 53, x: 12.21, y: -5.1
+index: 54, x: 41.25, y: 1.65
+index: 55, x: 19.89, y: 21.42
+index: 56, x: 7.62, y: -13.62
+index: 57, x: 7.53, y: -7.44
+index: 58, x: 7.59, y: -2.61
+index: 59, x: 12.21, y: -11.01
+index: 60, x: 9.9, y: -9.84
+index: 61, x: 9.87, y: -6.24
+index: 62, x: 18.45, y: 0.42
+index: 63, x: 41.22, y: -21.03
+index: 64, x: 41.19, y: -7.17
+index: 65, x: 7.56, y: -6.21
+index: 66, x: 7.59, y: -1.35
+index: 67, x: 12.21, y: -7.53
+index: 68, x: 9.87, y: -1.41
+index: 69, x: 3.81, y: -11.07
+index: 70, x: 3.72, y: -6.15
+index: 71, x: 9.96, y: -13.5
+index: 72, x: 3.75, y: -3.78
+index: 73, x: 9.87, y: -3.87
+index: 74, x: 3.72, y: 0.39
+index: 75, x: 16.23, y: -11.52
+index: 76, x: 3.75, y: -1.38
+index: 77, x: -0.03, y: -1.62
+index: 78, x: 24.09, y: -5.31
+index: 79, x: 3.75, y: -7.41
+------- Print the edge here -------
+index pair: 0, 39
+index pair: 0, 56
+index pair: 1, 63
+index pair: 2, 6
+index pair: 2, 47
+index pair: 3, 36
+index pair: 3, 59
+index pair: 4, 13
+index pair: 4, 45
+index pair: 4, 47
+index pair: 5, 24
+index pair: 5, 39
+index pair: 6, 40
+index pair: 7, 21
+index pair: 7, 69
+index pair: 8, 15
+index pair: 8, 43
+index pair: 8, 62
+index pair: 9, 70
+index pair: 9, 72
+index pair: 10, 51
+index pair: 11, 53
+index pair: 11, 67
+index pair: 12, 15
+index pair: 12, 25
+index pair: 12, 37
+index pair: 12, 64
+index pair: 13, 19
+index pair: 13, 56
+index pair: 14, 16
+index pair: 14, 58
+index pair: 15, 78
+index pair: 16, 65
+index pair: 17, 72
+index pair: 17, 76
+index pair: 18, 34
+index pair: 18, 42
+index pair: 19, 48
+index pair: 19, 71
+index pair: 20, 61
+index pair: 20, 73
+index pair: 21, 79
+index pair: 22, 27
+index pair: 22, 37
+index pair: 22, 52
+index pair: 23, 74
+index pair: 23, 77
+index pair: 24, 57
+index pair: 26, 44
+index pair: 26, 48
+index pair: 28, 33
+index pair: 28, 60
+index pair: 29, 35
+index pair: 29, 63
+index pair: 30, 46
+index pair: 30, 71
+index pair: 31, 68
+index pair: 31, 73
+index pair: 32, 34
+index pair: 32, 49
+index pair: 32, 50
+index pair: 33, 61
+index pair: 35, 52
+index pair: 36, 67
+index pair: 37, 75
+index pair: 38, 50
+index pair: 38, 66
+index pair: 38, 74
+index pair: 40, 77
+index pair: 41, 78
+index pair: 42, 53
+index pair: 43, 49
+index pair: 43, 75
+index pair: 44, 59
+index pair: 45, 69
+index pair: 46, 60
+index pair: 49, 62
+index pair: 50, 68
+index pair: 51, 55
+index pair: 52, 64
+index pair: 54, 64
+index pair: 57, 65
+index pair: 58, 66
+index pair: 70, 79
+index pair: 74, 76
+------- Eular Circuit -------
+49
+32
+34
+18
+42
+53
+11
+67
+36
+3
+59
+44
+26
+48
+19
+13
+4
+45
+4
+47
+2
+6
+40
+77
+23
+74
+76
+17
+72
+9
+70
+79
+21
+7
+69
+45
+69
+7
+21
+79
+70
+9
+72
+17
+76
+74
+38
+50
+38
+66
+58
+14
+16
+65
+57
+24
+5
+39
+0
+56
+13
+19
+71
+30
+46
+60
+28
+33
+61
+20
+73
+31
+68
+50
+32
+49
+43
+8
+15
+78
+41
+78
+15
+12
+25
+12
+37
+12
+64
+54
+64
+52
+35
+29
+63
+1
+63
+29
+35
+52
+22
+27
+22
+37
+75
+43
+8
+62
+49

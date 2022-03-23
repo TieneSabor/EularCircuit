@@ -3,6 +3,7 @@
 
 #include <EularCircuit.hpp>
 #include <chrono>
+#include <fstream>
 
 double find_match_violence(
   std::vector<std::vector<double>> & weight_map, std::vector<int> & not_match_yet,
@@ -470,8 +471,70 @@ int test_EC_rand_eularize()
   return 0;
 }
 
+void read_from_file()
+{
+  std::fstream file("EC.txt");
+  if (!file) {
+    std::cerr << "no file EC.txt found" << std::endl;
+  }
+  std::string buf;
+  EC_graph * peg;
+  std::vector<int> index;
+  int state = -1;  // 0: read current position; 1: read vertex; 2: read edge; 3: read path
+  while (getline(file, buf)) {
+    if (0 == buf.compare("------- Current Position -------")) {
+      state = 0;
+    } else if (0 == buf.compare("------- Print the vertex here -------")) {
+      state = 1;
+    } else if (0 == buf.compare("------- Print the edge here -------")) {
+      state = 2;
+    } else if (0 == buf.compare("------- Eular Circuit -------")) {
+      state = 3;
+    } else {
+      // std::cout << "at state " << state << std::endl;
+      int num;
+      int index;
+      int ia, ib;
+      int ip;
+      double x, y;
+      std::string gph;
+      switch (state) {
+        case 0:
+          sscanf(buf.c_str(), "x: %lf, y: %lf, total num: %d", &x, &y, &num);
+          peg = new EC_graph(x, y, num);
+          peg->print_width(gph);
+          // std::cout << gph << std::endl;
+          break;
+          // std::cout << "x: " << x << ", y: " << y << ", total num: " << num << std::endl;
+        case 1:
+          sscanf(buf.c_str(), "index: %d, x: %lf, y: %lf", &index, &x, &y);
+          peg->add_vert(index, x, y);
+          break;
+          // std::cout << "x: " << x << ", y: " << y << ", index: " << index << std::endl;
+        case 2:
+          sscanf(buf.c_str(), "index pair: %d, %d", &ia, &ib);
+          // std::cout << "ia: " << ia << ", ib: " << ib << std::endl;
+          peg->add_edge(ia, ib);
+          break;
+        case 3:
+          sscanf(buf.c_str(), "%d", &ip);
+          break;
+      }
+    }
+  }
+  /*
+  std::string gph;
+  peg->print_width(gph);
+  std::cout << gph << std::endl;
+  */
+  // get path
+  peg->find_eular_circuit();
+  peg->print_file("ectest.txt");
+}
+
 int main()
 {
-  test_EC_rand_eularize();
+  // test_EC_rand_eularize();
+  read_from_file();
   return 0;
 }

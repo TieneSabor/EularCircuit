@@ -114,8 +114,20 @@ def plotrect(v, e, p, path):
     anim.save(path + '.mp4', fps=3, extra_args=['-vcodec', 'libx264'])
     plt.show()
 
+def plot_graph_only(v, e):
+    fig, axis = plt.subplots(1, 1)
+    for i, x, y in v:
+        # print(str(i)+','+str(x)+','+str(y))
+        axis.plot(x, y, 'bo', markersize = 4)
+        axis.annotate(str(i) + 'th', xy = (x, y), xytext = (x, y+1))
+    for a, b in e:
+        ia, ax, ay = v[a]
+        ib, bx, by = v[b]
+        axis.plot([ax, bx], [ay, by], 'green')
+    plt.show()
+
 if __name__ == "__main__":
     path = parseopt(sys.argv[1:])
     v, e, p = readfile(path)
     plotrect(v, e, p, path)
-
+    # plot_graph_only(v, e)

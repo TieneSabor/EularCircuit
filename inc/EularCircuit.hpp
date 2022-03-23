@@ -3,6 +3,7 @@
 #include <math.h>
 
 #include <algorithm>
+#include <fstream>
 #include <iostream>
 #include <map>
 #include <string>
@@ -57,6 +58,17 @@ public:
   /* Insert the cost between 2 different elements. 
    */
   void insert_weight(int ai, int bi, double w);
+
+  /*  */
+  void print_weight(void)
+  {
+    for (int i = 0; i < weight_.size(); i++) {
+      for (int j = 0; j < weight_.size(); j++) {
+        std::cout << " | " << weight_[i][j];
+      }
+      std::cout << " |" << std::endl;
+    }
+  }
 
   /* Get the map key.  We store known combination of pairs in a map.  
    */
@@ -215,6 +227,8 @@ public:
   /* 
    */
   // void print_path();
+  int print_file(std::string path);
+  int print_file_no_path(std::string path);
 
   /* Calculate the Eular Circuit.
    */
@@ -223,6 +237,9 @@ public:
   /* The vector of vertice is the sequence for visiting the vertex on Eular Circuit.
    */
   void get_eular_circuit(std::vector<v2d *> & ec) { ec = eular_path_; }
+
+  /*  */
+  void get_err(std::string _err);
 
 private:
   // If edge updated, it become false. When false, we must update edge's lowest dist before update_path().
